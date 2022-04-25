@@ -1,0 +1,2 @@
+https://github.com/sqlmapproject/sqlmap.git
+https://github.com/maurosoria/dirsearch.git
