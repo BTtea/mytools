@@ -1,3 +1,4 @@
 https://github.com/sqlmapproject/sqlmap.git
-https://github.com/maurosoria/dirsearch.git
 https://github.com/s0md3v/XSStrike.git
+https://github.com/hansmach1ne/lfimap.git
+https://github.com/maurosoria/dirsearch.git
