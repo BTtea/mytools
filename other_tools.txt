@@ -1,0 +1,20 @@
+# chisel - proxy tool
+https://github.com/jpillora/chisel/releases/tag/v1.9.1
+
+# pwnkit - linux elevate privileges (CVE-2021-4034)
+https://github.com/ly4k/PwnKit
+
+# dirtypipe - linux elevate privileges (CVE-2022-0847)
+https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits
+
+# (Unused) linux elevate privileges (CVE-2021-22555)
+https://github.com/xyjl-ly/CVE-2021-22555-Exploit
+
+# (Unused) linux elevate privileges (CVE-2023-32233)
+https://github.com/Liuk3r/CVE-2023-32233
+
+# (Unused) ubnutu linux elevate privileges (CVE-2017-16995)
+https://github.com/jas502n/Ubuntu-0day
+
+# (Unused) linux elevate privileges (CVE-2016-5195)
+https://github.com/firefart/dirtycow
