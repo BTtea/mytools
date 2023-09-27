@@ -4,3 +4,4 @@ https://github.com/hansmach1ne/lfimap.git
 https://github.com/maurosoria/dirsearch.git
 https://github.com/lobuhi/byp4xx.git
 https://github.com/offsecginger/koadic.git
+https://github.com/WangYihang/GitHacker.git
