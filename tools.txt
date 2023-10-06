@@ -5,3 +5,4 @@ https://github.com/maurosoria/dirsearch.git
 https://github.com/lobuhi/byp4xx.git
 https://github.com/offsecginger/koadic.git
 https://github.com/WangYihang/GitHacker.git
+https://github.com/AtesComp/Vinetto.git
