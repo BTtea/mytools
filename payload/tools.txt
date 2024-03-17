@@ -1,0 +1,16 @@
+# str to hex
+print(*[hex(ord(i))[2:] for i in input('str:')], sep='')
+
+
+# str to ascii
+print(*[ord(i) for i in input('str:')], sep='')
+
+# hex to str
+# input: 0x70696e67202d6e203230203132372e302e302e31
+# output: ping -n 20 127.0.0.1
+print(f"output: {bytearray.fromhex(input('input: ')[2:]).decode()}")
+
+# mssql - ascii to str
+# input: CHAR(69)+CHAR(114)+CHAR(114)+CHAR(111)+CHAR(114)+CHAR(76)+CHAR(111)+CHAR(103)+CHAR(70)+CHAR(105)+CHAR(108)+CHAR(101)+CHAR(78)+CHAR(97)+CHAR(109)+CHAR(101)
+# output: ErrorLogFileName
+print(eval(input("input:").replace('CHAR','chr')))
