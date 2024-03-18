@@ -78,6 +78,9 @@ def FuncConfuse(ss:str):
 
 
 def main():
+    print('example:')
+    print("\tInput 'system', can return a php code webshell")
+    print('\tOn website use xxx.php?0=id')
     func_name=input('function name: ')
     while True:
         try:
