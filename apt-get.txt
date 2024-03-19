@@ -1,0 +1,4 @@
+apt-get install xsltproc
+apt-get install nmap
+apt-get install docker.io
+apt-get install net-tools

