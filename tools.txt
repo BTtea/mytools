@@ -7,3 +7,4 @@ https://github.com/sullo/nikto.git
 https://github.com/lijiejie/GitHack.git
 https://github.com/RUB-NDS/PRET.git
 https://github.com/NetDirect/nfsshell.git
+https://github.com/arthaud/git-dumper.git
