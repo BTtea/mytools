@@ -10,6 +10,9 @@ https://github.com/ly4k/PwnKit
 # dirtypipe - linux elevate privileges (CVE-2022-0847)
 https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits
 
+# linux elevate privileges (CVE-2024-1086)
+https://github.com/Notselwyn/CVE-2024-1086
+
 # (Unused) linux elevate privileges (CVE-2021-22555)
 https://github.com/xyjl-ly/CVE-2021-22555-Exploit
 
