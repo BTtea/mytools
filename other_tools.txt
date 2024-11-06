@@ -1,6 +1,9 @@
 # chisel - proxy tool
 https://github.com/jpillora/chisel/releases/tag/v1.9.1
 
+# dirtycow - linux elevate privileges (CVE-2016-5195)
+https://github.com/firefart/dirtycow
+
 # pwnkit - linux elevate privileges (CVE-2021-4034)
 https://github.com/ly4k/PwnKit
 
