@@ -1,3 +1,6 @@
+# socat
+http://www.dest-unreach.org/socat/
+
 # chisel - proxy tool
 https://github.com/jpillora/chisel/releases/tag/v1.9.1
 
