@@ -1,5 +1,6 @@
 <?php
 // https://github.com/wupco/PHP_INCLUDE_TO_SHELL_CHAR_DICT
+// https://github.com/wupco/PHP_INCLUDE_TO_SHELL_CHAR_DICT/issues/1
 error_reporting(E_ALL & ~E_WARNING);
 ini_set("memory_limit", "-1");
 set_time_limit(0);
