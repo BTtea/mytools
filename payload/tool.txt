@@ -37,3 +37,6 @@ Get-ChildItem -Path "C:\htdocs" -Recurse | Measure-Object -Property Length -Sum 
 # tar
 tar -cvzf htdocs.tar.gz "C:\htdocs"
 tar -zxvf htdocs.tar -C "D:\htdocs"
+
+# encode base64 (utf-16)
+echo -n "Test" | iconv -f UTF-8 -t UTF-16LE | base64
