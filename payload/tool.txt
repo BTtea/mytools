@@ -40,3 +40,6 @@ tar -zxvf htdocs.tar -C "D:\htdocs"
 
 # encode base64 (utf-16)
 echo -n "Test" | iconv -f UTF-8 -t UTF-16LE | base64
+
+# string to ibm500 encode
+echo -n "`read a;echo -n $a`" | iconv -f UTF-8 -t IBM500 | xxd -p | sed 's/../%&/g'
