@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Scanner</title>
+    <style>
+        * {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>輸入 JS 連結：</h2>
+    <input type="text" id="jsurl" value="https://code.jquery.com/jquery-3.7.1.min.js" size="80">
+    <button onclick="loadScript()">檢查</button>
+
+    <pre id="output" style="margin-top: 1em; background: #eee; padding: 1em;"></pre>
+
+    <script>
+        function loadScript() {
+            const url = document.getElementById('jsurl').value;
+            const script = document.createElement('script');
+            script.src = url;
+            script.onload = function () {
+                // 確保 jQuery 成功載入後才執行
+                if (typeof $ !== 'undefined' && $.fn && $.fn.jquery) {
+                    document.getElementById('output').textContent = `jQuery version loaded: ${$.fn.jquery}`;
+                } else {
+                    document.getElementById('output').textContent = `Script loaded, but $.fn.jquery not found.`;
+                }
+            };
+            script.onerror = function () {
+                document.getElementById('output').textContent = `載入失敗：${url}`;
+            };
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+
+</html>
