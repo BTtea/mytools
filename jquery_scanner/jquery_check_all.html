@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Scanner</title>
+<style>
+  textarea, .output { width:100%; font-size:16px; margin-top:1em; }
+  .output { background:#eee; padding:1em; white-space:pre-wrap; }
+  .ok   { color:#548C00; font-weight:bold; }
+  .warn { color:#EA7500; font-weight:bold; }
+  .fail { color:#842B00; font-weight:bold; }
+  * { font-size:20px; font-family:Consolas,monospace; }
+</style>
+</head>
+<body>
+<h2>輸入多行 JS 連結（每行一條）</h2>
+<textarea id="jslist" rows="6">
+https://code.jquery.com/jquery-3.4.1.min.js
+https://code.jquery.com/jquery-3.5.1.min.js
+https://code.jquery.com/jquery-1.12.4.min.js
+https://code.jquery.com/not-exist.js
+</textarea><br>
+<button id="scanBtn">開始掃描</button>
+
+<h2>結果</h2>
+<div id="output" class="output"></div>
+
+<script>
+function isLessOrEqual(ver, target) {
+  const v = ver.split('.').map(Number);
+  const t = target.split('.').map(Number);
+  for (let i = 0; i < 3; i++) {
+    if (v[i] < t[i]) return true;
+    if (v[i] > t[i]) return false;
+  }
+  return true;
+}
+
+document.getElementById('scanBtn').addEventListener('click', () => {
+  const urls = document.getElementById('jslist').value
+               .split('\n').map(u => u.trim()).filter(Boolean);
+
+  const okLines   = [];   // 成功 / warn
+  const failLines = [];   // 載入失敗或讀取失敗
+  let finished = 0;       // 完成計數
+
+  const out = document.getElementById('output');
+  out.innerHTML = '';
+
+  urls.forEach(url => {
+    const s = document.createElement('script');
+    s.src = url;
+
+    s.onload = () => {
+      try {
+        const jq = window.jQuery.noConflict(true);
+        const ver = jq && jq.fn && jq.fn.jquery ? jq.fn.jquery : '未知';
+        const cls = isLessOrEqual(ver, '3.4.1') ? 'warn' : 'ok';
+        okLines.push(`<span class="${cls}">${url} - version : ${ver}</span>`);
+      } catch (e) {
+        failLines.push(`<span class="fail">${url} - 載入成功但讀取失敗 (${e.message})</span>`);
+      }
+      checkDone();
+    };
+
+    s.onerror = () => {
+      failLines.push(`<span class="fail">${url} - 載入失敗</span>`);
+      checkDone();
+    };
+
+    document.body.appendChild(s);
+  });
+
+  function checkDone(){
+    finished++;
+    if (finished === urls.length) {
+      // 先成功/警告，再失敗
+      out.innerHTML = okLines.concat(failLines).join('<br>');
+    }
+  }
+});
+</script>
+</body>
+</html>
