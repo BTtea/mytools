@@ -1,12 +1,21 @@
 https://github.com/sqlmapproject/sqlmap.git
 https://github.com/maurosoria/dirsearch.git
-https://github.com/iamj0ker/bypass-403.git
-https://github.com/p0dalirius/ipsourcebypass.git
-https://github.com/AtesComp/Vinetto.git
 https://github.com/sullo/nikto.git
+https://github.com/tech128/socat-1.7.3.0-windows.git
+
+# git exploit
 https://github.com/lijiejie/GitHack.git
 https://github.com/arthaud/git-dumper.git
-https://github.com/tech128/socat-1.7.3.0-windows.git
+
+# ip bypass
+https://github.com/iamj0ker/bypass-403.git
+https://github.com/p0dalirius/ipsourcebypass.git
+
+# decode .DS_Store
+https://github.com/lijiejie/ds_store_exp.git
+
+# decode Thumbs.db
+https://github.com/AtesComp/Vinetto.git
 
 # windows shell(hta,vbs,js)
 https://github.com/offsecginger/koadic.git
