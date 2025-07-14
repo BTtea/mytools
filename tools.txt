@@ -11,3 +11,4 @@ https://github.com/NetDirect/nfsshell.git
 https://github.com/arthaud/git-dumper.git
 https://github.com/tech128/socat-1.7.3.0-windows.git
 https://github.com/aboul3la/Sublist3r.git
+https://github.com/dionach/CMSmap.git
