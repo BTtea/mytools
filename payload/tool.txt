@@ -46,5 +46,8 @@ echo -n "`read a;echo -n $a`" | iconv -f UTF-8 -t IBM500 | xxd -p | sed 's/../%&
 
 # Display all file extensions in the directory
 find ./ -maxdepth 1 -type f | sed -n 's/.*\.//p' | sort -u
+powershell "Get-ChildItem -File -Path './' | ForEach-Object { $_.Extension.TrimStart('.') } | Sort-Object -Unique"
+
 # Display all file extensions in the directory (including files in all subdirectories)
 find ./ -type f | sed -n 's/.*\.//p' | sort -u
+powershell "Get-ChildItem -File -Recurse -Path './' | ForEach-Object { $_.Extension.TrimStart('.') } | Sort-Object -Unique"
