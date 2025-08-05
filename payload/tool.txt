@@ -43,3 +43,8 @@ echo -n "Test" | iconv -f UTF-8 -t UTF-16LE | base64
 
 # string to ibm500 encode
 echo -n "`read a;echo -n $a`" | iconv -f UTF-8 -t IBM500 | xxd -p | sed 's/../%&/g'
+
+# Display all file extensions in the directory
+find ./ -maxdepth 1 -type f | sed -n 's/.*\.//p' | sort -u
+# Display all file extensions in the directory (including files in all subdirectories)
+find ./ -type f | sed -n 's/.*\.//p' | sort -u
