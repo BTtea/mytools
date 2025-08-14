@@ -11,6 +11,9 @@ https://github.com/arthaud/git-dumper.git
 https://github.com/iamj0ker/bypass-403.git
 https://github.com/p0dalirius/ipsourcebypass.git
 
+# .svn exploit
+https://github.com/admintony/svnExploit.git
+
 # decode .DS_Store
 https://github.com/lijiejie/ds_store_exp.git
 
