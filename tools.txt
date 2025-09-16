@@ -34,3 +34,6 @@ https://github.com/aboul3la/Sublist3r.git
 
 # scan WordPress,Joomla,Drupal,Moodle
 https://github.com/dionach/CMSmap.git
+
+# password list
+https://github.com/Mebus/cupp.git
